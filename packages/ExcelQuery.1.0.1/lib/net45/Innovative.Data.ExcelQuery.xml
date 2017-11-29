@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Innovative.Data.ExcelQuery</name>
+    </assembly>
+    <members>
+        <member name="T:Innovative.Data.ExcelQuery">
+            <summary>
+            Provides a simple wrapper to query data from an Excel spreadsheet.
+            </summary>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.#ctor">
+            <summary>
+            Creates a default instance of the ExcelQuery object.
+            </summary>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.#ctor(System.String)">
+            <summary>
+            Creates an instance of the ExcelQuery object using the specified file path.
+            </summary>
+            <param name="excelFilePath">The full path to a valid Excel spreadsheet./</param>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.#ctor(System.String,System.String)">
+            <summary>
+            Creates an instance of the ExcelQuery object using the specified file path and sheet name.
+            </summary>
+            <param name="excelFilePath">The full path to a valid Excel spreadsheet.</param>
+            <param name="sheetName">The name of the sheet containing the data.</param>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Creates an instance of the ExcelQuery object using the specified file path and sheet name
+            specifying whether or not the first row has column names.
+            </summary>
+            <param name="excelFilePath">The full path to a valid Excel spreadsheet.</param>
+            <param name="sheetName">The name of the sheet containing the data.</param>
+            <param name="headerHasFieldName">Specifies whether or not the first row in the spreadsheet (or range) contains
+            names that will represent the column names of the return data.</param>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.ExecuteDataSet(System.String,System.String)">
+            <summary>
+            Executes a query that will return a DataSet.
+            </summary>
+            <param name="sql">The SQL query to execute.</param>
+            <param name="tableName">The name to give the table in the return DataSet.</param>
+            <returns>A new DataSet object containing the results of the query.</returns>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.ExecuteNonQuery(System.String)">
+            <summary>
+            Executes a INSERT, UPDATE or DELETE query against the spreadsheet.
+            </summary>
+            <param name="sql">The SQL query to execute.</param>
+            <returns>The count of affected rows.</returns>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.ExecuteNonQuery(System.String,System.Data.OleDb.OleDbParameter[])">
+            <summary>
+            Executes a parameterized INSERT, UPDATE or DELETE query against the spreadsheet.
+            </summary>
+            <param name="sql">The SQL query to execute.</param>		
+            <param name="parameters">An array of parameter values that matches the number of parameters in the SQL statement.</param>
+            <returns>The count of affected rows.</returns>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.ExecuteScalar(System.String)">
+            <summary>
+            Executes a query that returns a single value.
+            </summary>
+            <param name="sql">The SQL query to execute.</param>
+            <returns>Returns an object containing the result of the SQL query.</returns>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.ExecuteScalar(System.String,System.Data.OleDb.OleDbParameter[])">
+            <summary>
+            Executes a parameterized query that returns a single value.
+            </summary>
+            <param name="sql">The SQL query to execute.</param>
+            <param name="parameters">An array of parameter values that matches the number of parameters in the SQL statement.</param>
+            <returns>Returns an object containing the result of the SQL query.</returns>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.ExecuteReader(System.String)">
+            <summary>
+            Executes a SQL statement and opens a reader on the spreadsheet.
+            </summary>
+            <param name="sql">The SQL query to execute.</param>
+            <returns>A reference to the reader that has been opened.</returns>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.ConnectionString">
+            <summary>
+            Gets the connection string used to perform queries against the spreadsheet.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.GetSchema(System.Guid)">
+            <summary>
+            Returns a DataTable object describing the schema data requested.by Schema 
+            Type. Use the OleDbSchemaGuid values to specify the type of data to 
+            retrieve. For example, OleDbSchemaGuid.Tables can be used to get a 
+            list of tables from the spreadsheet.
+            </summary>
+            <param name="schemaTypeGuid">A value from System.Data.OleDb.OleDbSchemaGuid.</param>
+            <returns>A DataTable object containing the schema description requested.</returns>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.GetSheets">
+            <summary>
+            Gets a list of sheets contained within the spreadsheet.
+            </summary>
+            <returns>Gets a list of sheet names contained in the spreadsheet.</returns>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.UpdateCell(Innovative.Data.ExcelQuery.Cell,System.Object)">
+            <summary>
+            Updates the contents of a specific cell in the spreadsheet.
+            </summary>
+            <param name="cell">The Cell to update.</param>
+            <param name="value">The value to place in the cell.</param>
+            <returns>True if successful, False otherwise.</returns>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.UpdateCell(System.String,System.Int32,System.Data.OleDb.OleDbType,System.Object)">
+            <summary>
+            Updates the contents of a specific cell in the spreadsheet.
+            </summary>
+            <param name="column">The name of the column to update.</param>
+            <param name="row">The row to update.</param>
+            <param name="dataType">The type of data to be placed into the cell.</param>
+            <param name="value">The value to be placed into the cell.</param>
+            <returns>True if successful, False otherwise.</returns>
+        </member>
+        <member name="P:Innovative.Data.ExcelQuery.HeaderHasFieldNames">
+            <summary>
+            Gets/sets whether or not the first row in the spreadsheet (or range) contains
+            names that will represent the column names of the return data.
+            </summary>
+        </member>
+        <member name="P:Innovative.Data.ExcelQuery.ExcelFilePath">
+            <summary>
+            Gets/sets the full path of the Excel spreadsheet.
+            </summary>
+        </member>
+        <member name="P:Innovative.Data.ExcelQuery.SheetName">
+            <summary>
+            Get/set the name of the sheet to retrieve data from.
+            </summary>
+        </member>
+        <member name="P:Innovative.Data.ExcelQuery.Provider">
+            <summary>
+            Gets/sets the connection string provider name to be used when connecting
+            to the Excel spreadsheet using the Jet database engine (this value specifies
+            the version of the Jet Engine to use).
+            </summary>
+        </member>
+        <member name="P:Innovative.Data.ExcelQuery.ExcelVersion">
+            <summary>
+            Gets/sets the connection string Excel version string to used when connecting
+            to the Excel spreadsheet using the Jet database engine.
+            </summary>
+        </member>
+        <member name="P:Innovative.Data.ExcelQuery.ConnectionProperties">
+            <summary>
+            Gets/sets the properties added to the connection string specific to
+            Excel. The HDR=YES/NO property is automatically added based on the 
+            HeaderHasFieldNames property.
+            </summary>
+        </member>
+        <member name="T:Innovative.Data.ExcelQuery.Cell">
+            <summary>
+            Represents a cell within a worksheet.
+            </summary>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.Cell.#ctor">
+            <summary>
+            Creates a new instance of a Cell object with default values.
+            </summary>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.Cell.#ctor(System.String,System.Int32)">
+            <summary>
+            Creates a new instance of a Cell object with the specified column name and row number.
+            </summary>
+            <param name="column"></param>
+            <param name="row"></param>
+        </member>
+        <member name="M:Innovative.Data.ExcelQuery.Cell.#ctor(System.String,System.Int32,System.Data.OleDb.OleDbType)">
+            <summary>
+            Creates a new instance of a Cell object with the specified column name, row number and data type.
+            </summary>
+            <param name="column"></param>
+            <param name="row"></param>
+            <param name="dataType"></param>
+        </member>
+        <member name="P:Innovative.Data.ExcelQuery.Cell.Column">
+            <summary>
+            Gets/sets the name of the column this cell references.
+            </summary>
+        </member>
+        <member name="P:Innovative.Data.ExcelQuery.Cell.Row">
+            <summary>
+            Gets/sets the name of the row number this cell references.
+            </summary>
+        </member>
+        <member name="P:Innovative.Data.ExcelQuery.Cell.DataType">
+            <summary>
+            Gets/sets the name of the data type of this cell references.
+            </summary>
+        </member>
+        <member name="T:Innovative.Data.ExcelQuery.ConnectionStringItems">
+            <summary>
+            Provides constants that can be used in the connection string.
+            </summary>
+        </member>
+        <member name="T:Innovative.Data.ExcelQuery.ConnectionStringItems.Providers">
+            <summary>
+            Provides a list of provider names to be used in the connection string.
+            </summary>
+        </member>
+        <member name="F:Innovative.Data.ExcelQuery.ConnectionStringItems.Providers.Jet4">
+            <summary>
+            Specifies that the Jet 4.0 Engine should be used.
+            </summary>
+        </member>
+        <member name="F:Innovative.Data.ExcelQuery.ConnectionStringItems.Providers.Jet12">
+            <summary>
+            Specifies that the Jet 12.0 Engine should be used.
+            </summary>
+        </member>
+        <member name="T:Innovative.Data.ExcelQuery.ConnectionStringItems.ExcelVersions">
+            <summary>
+            Provides a list of Excel versions to be used in the connection string.
+            </summary>
+        </member>
+        <member name="F:Innovative.Data.ExcelQuery.ConnectionStringItems.ExcelVersions.Excel97to2003">
+            <summary>
+            Specifies that the version of Excel is 97-2003.
+            </summary>
+        </member>
+        <member name="F:Innovative.Data.ExcelQuery.ConnectionStringItems.ExcelVersions.Excel2007to2013">
+            <summary>
+            Specifies that the version of Excel is 2007-2013.
+            </summary>
+        </member>
+    </members>
+</doc>

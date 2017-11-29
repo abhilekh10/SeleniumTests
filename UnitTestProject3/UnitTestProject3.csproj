@@ -35,15 +35,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Innovative.Data.ExcelQuery, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelQuery.1.0.1\lib\net45\Innovative.Data.ExcelQuery.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ReflectionMagic, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReflectionMagic.2.0.0\lib\net40\ReflectionMagic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SeekU, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SeekU.0.0.1\lib\net45\SeekU.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SeekU.FileIO, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SeekU.FileIO.0.0.1\lib\net45\SeekU.FileIO.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Selenium.WebDriverBackedSelenium">
       <HintPath>D:\EVA\Refs\Selenium.WebDriverBackedSelenium.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="ThoughtWorks.Selenium.Core">
       <HintPath>D:\EVA\Refs\ThoughtWorks.Selenium.Core.dll</HintPath>
     </Reference>
@@ -67,12 +88,27 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Methods.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ABCData.xlsx" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestDataFiles\160by2.txt" />
+    <Content Include="TestDataFiles\Clickin.txt" />
+    <Content Include="TestDataFiles\FreeSms.txt" />
+    <Content Include="TestDataFiles\Locanto.txt" />
+    <Content Include="TestDataFiles\PhoneData.txt" />
+    <Content Include="TestDataFiles\PhoneSmsTest.txt" />
+    <Content Include="TestDataFiles\Preferred_Customers.txt" />
+    <Content Include="TestDataFiles\VishwasContacts.txt" />
+    <Content Include="TestDataFiles\Way2sms.txt" />
+    <Content Include="TestDataFiles\Youtube_Counter.txt" />
+    <Content Include="TestDataFiles\Youtube_Sharing_1.txt" />
+    <Content Include="TestDataFiles\Youtube_Sharing_login.txt" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
